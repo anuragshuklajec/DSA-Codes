@@ -40,16 +40,6 @@ def insertAtIth(head,ele,i):
     newNode.next = curr
     return head
 
-def printIthNode(head,i):
-    count = 0
-    while head is not None and count < i:
-        head = head.next
-        count+=1
-    if head is None:
-        return -1
-    else:
-        return head.data
-
 head = takeInput()
 printLL(head)
 i = int(input())
