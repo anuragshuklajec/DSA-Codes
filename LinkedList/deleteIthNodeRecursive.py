@@ -24,7 +24,7 @@ def printLL(head):
         head = head.next
     print("None")
 
-def insertAtIth(head,i):
+def deleteAtIth(head,i):
     if i < 0 :
         return head
     if head is None:
@@ -33,7 +33,7 @@ def insertAtIth(head,i):
     if i == 0:
         return head.next
 
-    smallHead = insertAtIth(head.next,i-1)
+    smallHead = deleteAtIth(head.next,i-1)
     head.next = smallHead
     return head
 
