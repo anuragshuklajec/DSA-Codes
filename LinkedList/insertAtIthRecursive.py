@@ -25,6 +25,9 @@ def printLL(head):
     print("None")
 
 def insertAtIth(head,i,data):
+    if i < 0 :
+        return head
+    
     if head is None:
         return None
 
