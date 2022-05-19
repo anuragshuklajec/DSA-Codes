@@ -26,8 +26,8 @@ def printBinaryTree(root):
     if root.right != None:
         print("R", root.right.data,end="")
     print()
-    printBinaryTreePreOrder(root.left)
-    printBinaryTreePreOrder(root.right)
+    printBinaryTree(root.left)
+    printBinaryTree(root.right)
 
 
 root = treeInput()
