@@ -20,11 +20,11 @@ class Graph:
     def __str__(self):
         return str(self.adjMatrix)
 
-    def bfs(self):
+    def __bfsHelper(self,sv,visited):
         q = queue.Queue()
-        q.put(0)
-        visited = [False for i in range(self.nVertices)]
-        visited[0] = True
+        q.put(sv)
+        
+        visited[sv] = True
         while q.empty() is False:
             u = q.get()
             print(u)
@@ -32,13 +32,19 @@ class Graph:
                 if self.adjMatrix[u][i] > 0 and visited[i] is False:
                     q.put(i)
                     visited[i] = True
+     def bfs(self):
+        visited = [False for i in range(self.nVertices)]
+        for i in range(self.nVertices):
+            if visited[i] is False:
+                self.__bfsHelper(i,visited)
+            
 
 
-g = Graph(5)
+g = Graph(7)
 g.addEdge(0,1)
-g.addEdge(1,3)
+g.addEdge(0,3)
 g.addEdge(2,4)
-g.addEdge(2,3)
-g.addEdge(0,2)
+g.addEdge(2,5)
+g.addEdge(4,6)
 g.bfs()
 
