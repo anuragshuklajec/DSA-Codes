@@ -28,7 +28,9 @@ class Graph:
 
     def dfs(self):
         visited = [False for i in range(self.nVertices)]
-        self.__dfsHelper(0,visited)
+        for i in range(self.nVertices):
+            if visited[i] is False:
+                self.__dfsHelper(i,visited)
 
 
 g = Graph(5)
