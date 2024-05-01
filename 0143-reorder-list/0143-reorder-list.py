@@ -8,29 +8,26 @@ class Solution:
         """
         Do not return anything, modify head in-place instead.
         """
-        nodes = []
-        curr = head
+        # find the middle element
+        slow = head
+        fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        
+        # reverse eveything after slow:
+        curr = slow.next
+        prev = slow.next =  None
         while curr:
-            nodes.append(curr)
-            curr = curr.next
-
-        length = len(nodes)
-        mid = length//2
-        nodes[mid].next = None
-
-        l,r = 0,length-1
-        to_run = length - 1 - mid
-        while l < to_run :
-            nextEle = nodes[l].next
-            nodes[l].next = nodes[r]
-            nodes[r].next = nextEle
-            l+=1
-            r-=1
-
-            
-
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
 
         
-
-
-        
+        first,second = head, prev
+        while second:
+            temp1,temp2 = first.next,second.next
+            first.next = second
+            second.next = temp1
+            first,second = temp1, temp2
