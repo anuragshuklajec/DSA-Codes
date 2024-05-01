@@ -11,24 +11,22 @@ class Solution:
                 k-=1
             return curr
 
-        dummy = ListNode(0, head)
+        dummy = ListNode(0,head)
         groupPrev = dummy
-
         while True:
             kth = getkth(groupPrev,k)
             if not kth:
                 break
             groupNext = kth.next
-            
-            # reverse group
+
+            # reversing
             prev,curr = kth.next, groupPrev.next
             while curr != groupNext:
                 temp = curr.next
                 curr.next = prev
                 prev = curr
                 curr = temp
-
-            # resetting the groupPrev
+            
             temp = groupPrev.next
             groupPrev.next = kth
             groupPrev = temp
