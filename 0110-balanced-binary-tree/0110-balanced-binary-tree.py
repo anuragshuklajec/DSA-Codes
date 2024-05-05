@@ -12,7 +12,7 @@ class Solution:
             isleftBal, left = checkBalance(node.left)
             isrightBal, right = checkBalance(node.right)
             if not isleftBal or not isrightBal or abs(left - right) > 1:
-                return False, 0
+                return False, 1 + max(left,right)
             return True, 1 + max(left, right)
 
         isBalanced, height = checkBalance(root)
