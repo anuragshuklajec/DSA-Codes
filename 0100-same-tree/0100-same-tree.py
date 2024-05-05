@@ -10,16 +10,7 @@ class Solution:
             return True
         if (p == None and q != None) or (q == None and p != None) :
             return False
-        leftSame = self.isSameTree(p.left, q.left)
-        rightSame = self.isSameTree(p.right,q.right)
-        return p.val == q.val and leftSame and rightSame
+        return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right,q.right)
 
-
-        # if not p and not q:
-        #     return True
-        # if p and q and p.val == q.val:
-        #     return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
-        # else:
-        #     return False
 
         
