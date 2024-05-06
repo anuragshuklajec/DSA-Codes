@@ -13,16 +13,15 @@ class Solution:
         q.append(root)
         while q:
             lenQ = len(q)
-            found = False
+            lastNum = None
             for _ in range(lenQ):
                 curr = q.pop(0)
-                found = True
                 lastNum = curr.val
                 if curr.left:
                     q.append(curr.left)
                 if curr.right:
                     q.append(curr.right)
-            if found:
+            if lastNum is not None:
                 res.append(lastNum)
         return res
 
