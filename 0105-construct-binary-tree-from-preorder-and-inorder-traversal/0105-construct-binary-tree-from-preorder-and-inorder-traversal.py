@@ -11,16 +11,8 @@ class Solution:
         
         rootNode = TreeNode(preorder[0])
         rootIndexInorder = inorder.index(preorder[0])
-        leftinorder = inorder[:rootIndexInorder]
-        rightinorder = inorder[rootIndexInorder + 1 :]
-
-        lengthLeftInorder = len(leftinorder)
-
-        leftpreorder = preorder[1:lengthLeftInorder+1]
-        rightpreorder = preorder[lengthLeftInorder+1:]
-
-        rootNode.left =  self.buildTree(leftpreorder,leftinorder)
-        rootNode.right = self.buildTree(rightpreorder,rightinorder)
+        rootNode.left =  self.buildTree(preorder[1:rootIndexInorder+1],inorder[:rootIndexInorder])
+        rootNode.right = self.buildTree(preorder[rootIndexInorder+1:],inorder[rootIndexInorder + 1 :])
 
         return rootNode
     
