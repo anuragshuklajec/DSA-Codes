@@ -1,14 +1,14 @@
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
         res = []
-        nums.sort()
         subset = []
+        nums.sort()
         def backtrack(i):
             if i == len(nums):
-                res.append(subset[::])
+                res.append(subset[:])
                 return
             
-            # include ith
+            # include i
             subset.append(nums[i])
             backtrack(i+1)
             subset.pop()
@@ -19,6 +19,4 @@ class Solution:
             backtrack(i+1)
         backtrack(0)
         return res
-
-
         
